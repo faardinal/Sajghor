@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Outfit:wght@200;300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Outfit", sans-serif;
+  
+  --color-ivory: #FDFBF7;
+  --color-rose: #D4A39E;
+  --color-olive: #5A5A40;
+  --color-gold: #C5A059;
+  --color-charcoal: #2C2C2C;
+  --color-beige: #EAE7E1;
+  --color-champagne: #F1E5D1;
+
+  --ease-soft: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@layer base {
+  body {
+    @apply bg-ivory text-charcoal font-sans antialiased selection:bg-gold/20 leading-relaxed tracking-wide;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, .serif {
+    @apply font-serif transition-colors duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] leading-[1.1] tracking-tight;
+  }
+
+  button, a {
+    transition: all 0.8s cubic-bezier(0.22,1,0.36,1);
+  }
+
+  span {
+    @apply tracking-[0.2em];
+  }
+}
+
+.gold-thread-box {
+  @apply border border-gold/40 p-2 relative transition-all duration-700 ease-soft;
+}
+
+.gold-thread-box::after {
+  content: '';
+  @apply absolute inset-2 border-[0.5px] border-gold/30 pointer-events-none transition-all duration-700 ease-soft;
+}
+
+.btn-boutique {
+  @apply relative px-12 py-4 bg-transparent border border-gold/30 text-charcoal text-[10px] uppercase tracking-[0.4em] font-light overflow-hidden;
+}
+
+.btn-boutique:hover {
+  @apply border-gold/60 text-gold scale-[1.02];
+}
+
+.hero-radial-gradient {
+  background: radial-gradient(circle at 50% 50%, var(--color-rose) 0%, transparent 70%);
+}
+
+.vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
